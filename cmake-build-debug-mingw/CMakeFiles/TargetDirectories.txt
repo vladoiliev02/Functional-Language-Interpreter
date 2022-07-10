@@ -1,0 +1,5 @@
+C:/Users/User/Desktop/Uni/Year_2/SDP/Project/cmake-build-debug-mingw/CMakeFiles/Project.dir
+C:/Users/User/Desktop/Uni/Year_2/SDP/Project/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
+C:/Users/User/Desktop/Uni/Year_2/SDP/Project/cmake-build-debug-mingw/CMakeFiles/LiteralTest.dir
+C:/Users/User/Desktop/Uni/Year_2/SDP/Project/cmake-build-debug-mingw/CMakeFiles/ExpressionTest.dir
+C:/Users/User/Desktop/Uni/Year_2/SDP/Project/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir

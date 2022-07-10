@@ -1,0 +1,66 @@
+len ->
+if(#0,
+len(tail(#0)) + 1,
+0)
+
+// len([1,2,3])
+
+isOdd -> eq(mod(int(#0), 2), 1)
+isEven -> nand(isOdd(#0), 1)
+
+not -> nand(#0, 1)
+and -> not(nand(#0, #1))
+
+// генерира всички делители които да се проверят за числото #0
+divisors -> concat(
+    [2],
+    list(3, 2,
+   	 int(sqrt(#0)) - 1)
+)
+
+//divisors(9)
+
+// проверява дали числото #1 има делител в списъка #0
+containsDevisors -> if(
+    length(#0),
+    if(mod(#1, head(#0)), containsDevisors(tail(#0), #1), 1),
+    0
+)
+
+// проверява дали числото #0 е просто
+isPrime -> if( eq(#0, 2), 
+		1,
+		not(containsDevisors(divisors(#0), #0)))
+
+// #0 list of numbers, leaves only primes
+filterPrimes ->
+if(length(#0), 
+  if( isPrime(head(#0)),
+      concat([head(#0)], filterPrimes(tail(#0))),
+      filterPrimes(tail(#0))),
+  [])
+
+// всички прости числа до 10
+primes10 -> filterPrimes(concat([2], list(3, 1, 7)))
+
+filterOdd ->
+if(#0,
+  if( isOdd(head(#0)),
+      concat( head(#0), filterOdd(tail(#0))),
+      filterOdd(tail(#0))),
+  [])
+
+//filterOdd(list(1,1,10))
+
+filterEven ->
+if(#0,
+  if( isEven(head(#0)),
+      concat( head(#0), filterEven(tail(#0))),
+      filterEven(tail(#0))),
+  [])
+
+//filterEven(list(1,1,10))
+
+// primes10()
+// containsDevisors(divisors(5), 5)
+// containsDevisors(divisors(4), 4)
